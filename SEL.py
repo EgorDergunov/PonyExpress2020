@@ -45,6 +45,7 @@ def pony_driver_init(driver_path):
 
    try:
        title = WebDriverWait(driver,30).until(EC.title_is('Пегас'))
+       print('Страницу открыли')
    except:
        print('Page not opened')
        driver.close()
@@ -58,6 +59,7 @@ def case_1():
        element_login = WebDriverWait(driver,10).until(EC.presence_of_element_located((By.NAME, 'login')))
        element_password = WebDriverWait(driver,10).until(EC.presence_of_element_located((By.NAME, 'password')))
        enter_button = WebDriverWait(driver,10).until(EC.presence_of_element_located((By.CLASS_NAME, 'css-1hnkt5t')))
+       print('Окно логина нашли')
    except:
        print ('Login not found')
        driver.close()
@@ -72,10 +74,11 @@ def case_1():
    enter_button.click()
    try:
        flag = WebDriverWait(driver,10).until(EC.presence_of_element_located((By.CLASS_NAME, 'bp3-button-text')))
+       print('Вход выполнен')
    except:
        print ('Can not enter')
        driver.close()
    time.sleep(10)
    driver.close()
-
+   
 print (case_1())
