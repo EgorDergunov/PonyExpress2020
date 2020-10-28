@@ -50,9 +50,7 @@ def pegas_open():
        driver.close()
    return driver
 
-def case_8():
-   driver = pegas_open()
-   
+def case_8(): 
    try:
        menu_button = WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div[1]/section/section[1]/div/div/span/span/button')))
        menu_button.click()
@@ -81,6 +79,12 @@ def case_8():
    except:
        print ('Can not find "71 - Прибыл на склад без сортировки" button')
        driver.close()
+  
+   #print (driver.window_handles)
+   
+   time.sleep(15)
+   driver.switch_to.window('43')
+
    try:
        vvod_dannih = WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, '//html/body/div[3]/div/div[2]/div')))  
        print('Окно "Ввод данных о блоке" нашли')
@@ -95,6 +99,10 @@ def case_8():
        print ('Can not find "Продолжить без курьера" button')
        driver.close()
    driver.close()
-   
-print (case_8())
+
+
+if __name__ == '__main__':
+    driver = pegas_open()
+
+case_8()
 
