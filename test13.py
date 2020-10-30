@@ -61,7 +61,7 @@ def input_object_number(driver,obj_number):
        print ('Can not send object number')
        driver.close()
 
-def case_10(driver):
+def case_13(driver):
    
    try:
        menu_button = WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.XPATH, '/html/body/div[1]/section/section[1]/div/div/span/span/button')))
